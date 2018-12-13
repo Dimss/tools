@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import argparse
 import logging
 from typing import List
@@ -5,7 +6,7 @@ import subprocess
 parser = argparse.ArgumentParser()
 
 parser.add_argument('action', nargs='?', default='help',
-                    help="Action to perfrom: fetch|tag|push")
+                    help="Action to perfrom: fetch|tag|push|show")
 parser.add_argument('--dry-run', type=bool, default=False,
                     help='Dry run, output commands to stdout')
 parser.add_argument('--registry', type=str,
@@ -70,6 +71,11 @@ def push_mesh_images():
     return commands
 
 
+def get_orig_images():
+    for image in IMAGES:
+        logging.info(image)
+
+
 def main():
     log_format = '[%(asctime)s %(levelname)s] %(message)s'
     logging.basicConfig(level=logging.INFO, format=log_format)
@@ -90,6 +96,8 @@ def main():
             exit(1)
         cmds = push_mesh_images()
         command_executer(cmds)
+    if args.action == 'show':
+        get_orig_images()
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ own private registry.
 1. The `smiexporter.py` script will work only with Python3
 2. Each command can be executed with `--dry-run true` flag, so commands will be just printed and not executed
 
-Run the following command to pull, tag and push the images
+Execute following steps to pull, tag and push the Service Mesh images 
 1. Login to RH docker registry `docker login registry.access.redhat.com`, if you already logged in, skip this step.
 2. Pull all RH Service Mesh docker images by executing `./smiexporter.py fetch`
 3. Tag the images with your own private registry by executing `./smiexporter.py tag --registry docker.io/dimssss`

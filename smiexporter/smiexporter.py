@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 import argparse
+import sys
 import logging
 from typing import List
 import subprocess
@@ -78,7 +79,11 @@ def get_orig_images():
 
 def main():
     log_format = '[%(asctime)s %(levelname)s] %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_format)
+    logging.basicConfig(
+        level=logging.INFO,
+        format=log_format,
+        stream=sys.stdout
+    )
     if args.action == 'help':
         parser.print_help()
     if args.action == 'fetch':

@@ -17,7 +17,7 @@ Execute following steps to pull, tag and push the Service Mesh images
 
 ### Export images manually
 1. To get the list of all images do  `./smiexporter.py show` or open in any text editor the `smiexporter.py` file and look for the `IMAGES` list. 
-2. Tag each image in the list with your private address. For example:
+2. Tag each image in the list with your private registry address. For example:
       - The original image is `registry.access.redhat.com/openshift-istio-tech-preview/citadel:0.5.0` 
       - Private docker repo `docker.io/dimssss`
       - The docker tag should be as following: `docker tag registry.access.redhat.com/openshift-istio-tech-preview/citadel:0.5.0 docker.io/dimssss/citadel:0.5.0`. ***Note, when you are tagging image the last part should be always stay unchanged, in our example `citadel:0.5.0` will be the same, but the `registry.access.redhat.com/openshift-istio-tech-preview/` changed to `docker.io/dimssss/`***
